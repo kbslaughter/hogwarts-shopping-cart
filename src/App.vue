@@ -4,7 +4,7 @@
     <div class="cart-container">
       <div class="cart-list">
         <div class="cart-list-item">
-          <img src="img/DragonLiver.png" alt="Dragon Liver" class="product-image">
+          <img src="@/assets/img/DragonLiver.png" alt="Dragon Liver" class="product-image">
           <div class="item-details-with-actions">
             <div class="item-details">
               <h2>Dragon Liver</h2>
@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="cart-list-item">
-          <img src="img/GoldenSnitch.png" alt="Golden Snitch" class="product-image">
+          <img src="@/assets/img/GoldenSnitch.png" alt="Golden Snitch" class="product-image">
           <div class="item-details-with-actions">
             <div class="item-details">
               <h2>Golden Snitch</h2>
@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="cart-list-item">
-          <img src="img/UnicornTailHair.png" alt="Unicorn Tail Hair" class="product-image">
+          <img src="@/assets/img/UnicornTailHair.png" alt="Unicorn Tail Hair" class="product-image">
           <div class="item-details-with-actions">
             <div class="item-details">
               <h2>Unicorn Tail Hair</h2>
@@ -58,7 +58,7 @@
           </div>
         </div>
         <div class="cart-list-item">
-          <img src="img/Wand.jpg" alt="Wand" class="product-image">
+          <img src="@/assets/img/Wand.jpg" alt="Wand" class="product-image">
           <div class="item-details-with-actions">
             <div class="item-details">
               <h2>Wand</h2>
@@ -76,7 +76,7 @@
           </div>
         </div>
         <div class="cart-list-item">
-          <img src="img/Nimbus2000.jpg" alt="Nimbus 2000" class="product-image">
+          <img src="@/assets/img/Nimbus2000.jpg" alt="Nimbus 2000" class="product-image">
           <div class="item-details-with-actions">
             <div class="item-details">
               <h2>Nimbus 2000</h2>
