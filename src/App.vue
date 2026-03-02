@@ -1,15 +1,16 @@
 <template>
   <div class="shopping-cart">
-    <h1>Harry's Shopping Cart</h1>
+    <h1>{{username}}'s Shopping Cart</h1>
     <div class="cart-container">
       <div class="cart-list">
         <div class="cart-list-item">
           <img src="@/assets/img/DragonLiver.png" alt="Dragon Liver" class="product-image">
           <div class="item-details-with-actions">
             <div class="item-details">
-              <h2>Dragon Liver</h2>
-              <p class="price">$1500</p>
-              <p class="in-stock-status"> <i class="fa-solid fa-check"></i> In stock</p>
+              <h2>{{shoppingCartItems[0].productName}}</h2>
+              <p class="price">${{shoppingCartItems[0].price}}</p>
+              <p class="in-stock-status" v-if="shoppingCartItems[0].inStock"> <i class="fa-solid fa-check"></i> In stock</p>
+              <p class="on-backorder-status" v-else> <i class="fa-solid fa-hourglass-half"></i> On backorder</p>
             </div>
             <div class="item-actions">
               <div class="quantity-selector">
@@ -25,8 +26,8 @@
           <img src="@/assets/img/GoldenSnitch.png" alt="Golden Snitch" class="product-image">
           <div class="item-details-with-actions">
             <div class="item-details">
-              <h2>Golden Snitch</h2>
-              <p class="price">$600</p>
+              <h2>{{shoppingCartItems[1].productName}}</h2>
+              <p class="price">${{shoppingCartItems[1].price}}</p>
               <p class="in-stock-status"> <i class="fa-solid fa-check"></i> In stock</p>
             </div>
             <div class="item-actions">
@@ -43,8 +44,8 @@
           <img src="@/assets/img/UnicornTailHair.png" alt="Unicorn Tail Hair" class="product-image">
           <div class="item-details-with-actions">
             <div class="item-details">
-              <h2>Unicorn Tail Hair</h2>
-              <p class="price">$1200</p>
+              <h2>{{shoppingCartItems[2].productName}}</h2>
+              <p class="price">{{ shoppingCartItems[2].price }}</p>
               <p class="on-backorder-status"> <i class="fa-solid fa-hourglass-half"></i> On backorder</p>
             </div>
             <div class="item-actions">
@@ -61,8 +62,8 @@
           <img src="@/assets/img/Wand.jpg" alt="Wand" class="product-image">
           <div class="item-details-with-actions">
             <div class="item-details">
-              <h2>Wand</h2>
-              <p class="price">$2000</p>
+              <h2>{{shoppingCartItems[3].productName}}</h2>
+              <p class="price">${{shoppingCartItems[3].price}}</p>
               <p class="in-stock-status"> <i class="fa-solid fa-check"></i> In stock</p>
             </div>
             <div class="item-actions">
@@ -79,8 +80,8 @@
           <img src="@/assets/img/Nimbus2000.jpg" alt="Nimbus 2000" class="product-image">
           <div class="item-details-with-actions">
             <div class="item-details">
-              <h2>Nimbus 2000</h2>
-              <p class="price">$5000</p>
+              <h2>{{shoppingCartItems[4].productName}}</h2>
+              <p class="price">${{ shoppingCartItems[4].price }}</p>
               <p class="in-stock-status"> <i class="fa-solid fa-check"></i> In stock</p>
             </div>
             <div class="item-actions">
@@ -122,6 +123,45 @@
 </template>
 
 <script setup>
+  let username = 'Harry'
+  let shoppingCartItems = [
+    {
+      id: 1,
+      name: 'Dragon Liver',
+      price: 1500,
+      quantity: 3,
+      inStock: true,
+    },
+    {
+      id: 2,
+      name: 'Golden Snitch',
+      price: 600,
+      quantity: 2,
+      inStock: true,
+    },
+    {
+      id: 3,
+      name: 'Unicorn Tail Hair',
+      price: 1200,
+      quantity: 1,
+      inStock: false,
+    },
+    {
+      id: 4,
+      name: 'Wand',
+      price: 2000,
+      quantity: 1,
+      inStock: true,
+    },
+    {
+      id: 5,
+      name: 'Nimbus 2000',
+      price: 5000,
+      quantity: 1,
+      inStock: true,
+    },
+  ]
+
 
 </script>
 
