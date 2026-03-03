@@ -57,7 +57,7 @@
           <div class="item-details-with-actions">
             <div class="item-details">
               <h2>{{shoppingCartItems[2].productName}}</h2>
-              <p class="price">{{ shoppingCartItems[2].price }}</p>
+              <p class="price">${{ shoppingCartItems[2].price }}</p>
               <p class="on-backorder-status"> <i class="fa-solid fa-hourglass-half"></i> On backorder</p>
             </div>
             <div class="item-actions">
@@ -146,8 +146,9 @@
 </template>
 
 <script setup>
+  import { ref } from 'vue'
   let username = 'Harry'
-  let shoppingCartItems = [
+  let shoppingCartItems = ref([
     {
       id: 1,
       name: 'Dragon Liver',
@@ -188,7 +189,7 @@
       inStock: true,
       image: 'src/assets/img/Nimbus2000.png',
     },
-  ]
+  ])
 
 let hideDetails = ref(false)
 
