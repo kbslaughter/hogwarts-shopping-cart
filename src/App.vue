@@ -18,9 +18,15 @@
             </div>
             <div class="item-actions">
               <div class="quantity-selector">
-                <button class="quantity-change-button">−</button>
-                <input type="text" class="quantity-input" value="3" aria-label="quantity">
-                <button class="quantity-change-button">+</button>
+                <button class="quantity-change-button" @click="decreaseOne(shoppingCartItems[0])">−</button>
+                <input 
+                  type="text" 
+                  class="quantity-input" 
+                  :value="shoppingCartItems[0].quantity" 
+                  aria-label="quantity"
+                  @blur = "changeQuantity(shoppingCartItems[0].id, $event)"
+                  />
+                <button class="quantity-change-button" @click="increaseOne(shoppingCartItems[0])">+</button>
               </div>
               <button class="remove-item">✕</button>
             </div>
@@ -40,9 +46,15 @@
             </div>
             <div class="item-actions">
               <div class="quantity-selector">
-                <button class="quantity-change-button">−</button>
-                <input type="text" class="quantity-input" value="2" aria-label="quantity">
-                <button class="quantity-change-button">+</button>
+                <button class="quantity-change-button" @click="decreaseOne(shoppingCartItems[1])">-</button>
+                <input 
+                  type="text" 
+                  class="quantity-input" 
+                  :value="shoppingCartItems[1].quantity" 
+                  aria-label="quantity"
+                  @blur = "changeQuantity(shoppingCartItems[1].id, $event)"
+                  />
+                <button class="quantity-change-button" @click="increaseOne(shoppingCartItems[1])">+</button>
               </div>
               <button class="remove-item">✕</button>
             </div>
@@ -193,6 +205,29 @@
 
 let hideDetails = ref(false)
 
+function decreaseOne(id) {
+  shoppingCartItems.value.some((item) => {
+    if (item.id == id && item.quantity != 0) {
+      item.quantity = item.quantity - 1
+    }
+  })
+}
+
+function increaseOne(id) {
+  shoppingCartItems.value.some((item) => {
+    if (item.id == id) {
+      item.quantity = item.quantity + 1
+    }
+  })
+}
+
+function changeQuantity(id, event) {
+  shoppingCartItems.value.some((item) => {
+    if (item.id == id) {
+      item.quantity = parseInt(event.target.value)
+    }
+  })
+}
 
 </script>
 
