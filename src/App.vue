@@ -4,7 +4,11 @@
     <div class="cart-container">
       <div class="cart-list">
         <div class="cart-list-item">
-          <img src="@/assets/img/DragonLiver.png" alt="Dragon Liver" class="product-image">
+          <img 
+            :src="shoppingCartItems[0].image"
+            :alt="shoppingCartItems[0].productName" 
+            class="product-image"
+          />
           <div class="item-details-with-actions">
             <div class="item-details">
               <h2>{{shoppingCartItems[0].productName}}</h2>
@@ -23,7 +27,11 @@
           </div>
         </div>
         <div class="cart-list-item">
-          <img src="@/assets/img/GoldenSnitch.png" alt="Golden Snitch" class="product-image">
+          <img 
+            :src="shoppingCartItems[1].image"
+            :alt="shoppingCartItems[1].productName" 
+            class="product-image"
+          />
           <div class="item-details-with-actions">
             <div class="item-details">
               <h2>{{shoppingCartItems[1].productName}}</h2>
@@ -41,7 +49,11 @@
           </div>
         </div>
         <div class="cart-list-item">
-          <img src="@/assets/img/UnicornTailHair.png" alt="Unicorn Tail Hair" class="product-image">
+          <img 
+            :src="shoppingCartItems[2].image"
+            :alt="shoppingCartItems[2].productName" 
+            class="product-image"
+          />
           <div class="item-details-with-actions">
             <div class="item-details">
               <h2>{{shoppingCartItems[2].productName}}</h2>
@@ -59,7 +71,11 @@
           </div>
         </div>
         <div class="cart-list-item">
-          <img src="@/assets/img/Wand.jpg" alt="Wand" class="product-image">
+          <img 
+            :src="shoppingCartItems[3].image"
+            :alt="shoppingCartItems[3].productName" 
+            class="product-image"
+          />
           <div class="item-details-with-actions">
             <div class="item-details">
               <h2>{{shoppingCartItems[3].productName}}</h2>
@@ -77,7 +93,11 @@
           </div>
         </div>
         <div class="cart-list-item">
-          <img src="@/assets/img/Nimbus2000.jpg" alt="Nimbus 2000" class="product-image">
+          <img 
+            :src="shoppingCartItems[4].image"
+            :alt="shoppingCartItems[4].productName" 
+            class="product-image"
+          />
           <div class="item-details-with-actions">
             <div class="item-details">
               <h2>{{shoppingCartItems[4].productName}}</h2>
@@ -97,8 +117,11 @@
       </div>
       <div class="order-summary">
         <h2>Order summary</h2>
-        <button class="toggle-details-button">Hide Details</button>
-        <div class="">
+        <button class="toggle-details-button" @click="hideDetails = !hideDetails"
+        >
+          {{ hideDetails ? 'Show Details' : 'Hide Details' }} 
+        </button>
+        <div :class="{'hide-order-details': hideDetails}">
           <div class="summary-item">
             <span>Subtotal</span>
             <span>$13900</span>
@@ -131,6 +154,7 @@
       price: 1500,
       quantity: 3,
       inStock: true,
+      image: 'src/assets/img/DragonLiver.png',
     },
     {
       id: 2,
@@ -138,6 +162,7 @@
       price: 600,
       quantity: 2,
       inStock: true,
+      image: 'src/assets/img/GoldenSnitch.png',
     },
     {
       id: 3,
@@ -145,6 +170,7 @@
       price: 1200,
       quantity: 1,
       inStock: false,
+      image: 'src/assets/img/UnicornTailHair.png',
     },
     {
       id: 4,
@@ -152,6 +178,7 @@
       price: 2000,
       quantity: 1,
       inStock: true,
+      image: 'src/assets/img/Wand.jpg',
     },
     {
       id: 5,
@@ -159,8 +186,11 @@
       price: 5000,
       quantity: 1,
       inStock: true,
+      image: 'src/assets/img/Nimbus2000.png',
     },
   ]
+
+let hideDetails = ref(false)
 
 
 </script>
