@@ -49,20 +49,20 @@
         <div :class="{'hide-order-details': hideDetails}">
           <div class="summary-item">
             <span>Subtotal</span>
-            <span>$13900</span>
+            <span>${{subtotal}}</span>
           </div>
           <div class="summary-item">
             <span>Shipping estimate</span>
-            <span>$100</span>
+            <span>${{shippingEstimate}}</span>
           </div>
           <div class="summary-item">
             <span>Tax estimate</span>
-            <span>$1112</span>
+            <span>${{taxEstimate}}</span>
           </div>
         </div>
         <div class="summary-total">
           <strong>Order total</strong>
-          <strong>$15112</strong>
+          <strong>${{total}}</strong>
         </div>
         <button class="checkout-button">Checkout</button>
       </div>
@@ -71,7 +71,7 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue'
+  import { ref, computed } from 'vue'
   let username = 'Harry'
   let shoppingCartItems = ref([
     {
@@ -141,6 +141,18 @@ function removeItem(id) {
   shoppingCartItems.value.splice(index, 1)
 }
 
+let subtotal = computed(() => 
+  shoppingCartItems.value.reduce(
+    (acc, item) => acc + item.price * item.quantity, 
+    0
+  )
+)
+
+let shippingEstimate = computed(() => (subtotal.value > 10000 ? 100 : 50))
+
+let taxEstimate = computed(() => subtotal.value * 0.08)
+
+let total = computed(() => subtotal.value + shippingEstimate.value + taxEstimate.value)
 
 </script>
 
